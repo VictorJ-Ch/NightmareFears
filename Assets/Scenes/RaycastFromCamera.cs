@@ -21,11 +21,7 @@ public class RaycastFromCamera : MonoBehaviour
                     // Si el GameObject tiene el tag "Enemy", cambia su color a rojo
                     renderer.material.color = Color.red;
                 }
-                else
-                {
-                    // Si el GameObject no tiene el tag "Enemy", cambia su color a gris oscuro
-                    renderer.material.color = Color.gray;
-                }
+                
             }
         }
     }
