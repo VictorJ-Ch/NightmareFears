@@ -1,15 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.XR;
 
 public class GameManagerScript : MonoBehaviour
 {
     private static GameManagerScript instance;
-    public enum State{Pause, Play} 
-    public static State gameState;
+    public enum State{Pause, Play, Normal, Hugging} 
+    public static State gameState, PlayerState;
+
+    public Light BearLight;
     public static GameManagerScript Instance
     {
         get
@@ -26,6 +24,8 @@ public class GameManagerScript : MonoBehaviour
     void Start()
     {
         gameState = State.Play;
+        BearHug.Hug += HuggingBear;
+        BearHug.UnHug += UnHug;
     }
     void Update()
     {
@@ -56,5 +56,23 @@ public class GameManagerScript : MonoBehaviour
         gameState = State.Play;
         Time.timeScale = 1; //Play
         Debug.Log("Game Continues");
+    }
+
+    void HuggingBear()
+    {
+        PlayerState = State.Hugging;
+        if (BearLight.intensity <= 20)
+        {
+            BearLight.intensity++;
+        }
+    }
+
+    void UnHug()
+    {
+        PlayerState = State.Normal;
+        if (BearLight.intensity >= 0)
+        {
+            BearLight.intensity--;
+        }
     }
 }
