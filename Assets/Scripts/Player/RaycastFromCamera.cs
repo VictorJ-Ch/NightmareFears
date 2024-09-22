@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class RaycastFromCamera : MonoBehaviour
 {
+    public float rayDistance = 10f; // Distancia del raycast
     public Camera cam; // Asigna tu cámara en el inspector
+
+    private GameObject lastHitObject = null; // Último objeto golpeado por el raycast
+    private Color originalColor; // Color original del objeto
 
     void Update()
     {
@@ -10,18 +14,36 @@ public class RaycastFromCamera : MonoBehaviour
         Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
+       // Verificar si el raycast golpea un objeto
+        if (Physics.Raycast(ray, out hit, rayDistance))
         {
-            // Si el raycast golpea un GameObject
-            Renderer renderer = hit.transform.GetComponent<Renderer>();
-            if (renderer != null)
+            // Verificar si el objeto tiene el tag "Enemy"
+            if (hit.collider.CompareTag("Enemy"))
             {
-                if (hit.transform.CompareTag("Enemy"))
+                // Si es un nuevo objeto, guardar su color original
+                if (lastHitObject != hit.collider.gameObject)
                 {
-                    // Si el GameObject tiene el tag "Enemy", cambia su color a rojo
-                    renderer.material.color = Color.red;
+                    if (lastHitObject != null)
+                    {
+                        // Restaurar el color original del último objeto golpeado
+                        lastHitObject.GetComponent<Renderer>().material.color = originalColor;
+                    }
+
+                    lastHitObject = hit.collider.gameObject;
+                    originalColor = lastHitObject.GetComponent<Renderer>().material.color;
                 }
-                
+
+                // Cambiar el color del objeto a rojo
+                hit.collider.GetComponent<Renderer>().material.color = Color.red;
+            }
+        }
+        else
+        {
+            // Si el raycast no golpea nada, restaurar el color del último objeto golpeado
+            if (lastHitObject != null)
+            {
+                lastHitObject.GetComponent<Renderer>().material.color = originalColor;
+                lastHitObject = null;
             }
         }
     }
