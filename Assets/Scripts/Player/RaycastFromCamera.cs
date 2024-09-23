@@ -17,6 +17,7 @@ public class RaycastFromCamera : MonoBehaviour
     private GameObject lastHitObject = null; // Último objeto golpeado por el raycast
     private Color originalColor; // Color original del objeto
 
+    public LayerMask enemyLayer;
 
 
     void Update()
@@ -32,7 +33,7 @@ public class RaycastFromCamera : MonoBehaviour
         RaycastHit hit;
 
         // Verificar si el raycast golpea un objeto
-        if (Physics.Raycast(ray, out hit, rayDistance))
+        if (Physics.Raycast(ray, out hit, rayDistance, enemyLayer))
         {
             // Verificar si el objeto tiene el tag "Enemy"
             if (hit.collider.CompareTag("Enemy"))
