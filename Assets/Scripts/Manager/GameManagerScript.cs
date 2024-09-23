@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
@@ -42,7 +43,14 @@ public class GameManagerScript : MonoBehaviour
             // Se cambia el valor de triggerButton por el que se desea
             if(device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.menuButton, out triggerValue) && triggerValue)
             {
-                Pause();
+                if (gameState == State.Pause)
+                {
+                    Play();
+                }
+                else
+                {
+                    Pause();
+                }
             }
         }
     }
@@ -51,14 +59,14 @@ public class GameManagerScript : MonoBehaviour
         gameState = State.Pause;
         Time.timeScale = 0; //Pause
         UIPause.SetActive(true);
-        Debug.Log("game paused");
+        print("game paused");
     }
     public void Play()
     {
         gameState = State.Play;
         Time.timeScale = 1; //Play
         UIPause.SetActive(false);
-        Debug.Log("Game Continues");
+        print("Game Continues");
     }
 
     void HuggingBear()
