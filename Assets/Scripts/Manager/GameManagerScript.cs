@@ -8,6 +8,7 @@ public class GameManagerScript : MonoBehaviour
     public static State gameState, PlayerState;
 
     public Light BearLight;
+    public GameObject UIPause;
     public static GameManagerScript Instance
     {
         get
@@ -39,7 +40,7 @@ public class GameManagerScript : MonoBehaviour
         {
             bool triggerValue;
             // Se cambia el valor de triggerButton por el que se desea
-            if(device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out triggerValue) && triggerValue)
+            if(device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.menuButton, out triggerValue) && triggerValue)
             {
                 Pause();
             }
@@ -49,12 +50,14 @@ public class GameManagerScript : MonoBehaviour
     {
         gameState = State.Pause;
         Time.timeScale = 0; //Pause
+        UIPause.SetActive(true);
         Debug.Log("game paused");
     }
     public void Play()
     {
         gameState = State.Play;
         Time.timeScale = 1; //Play
+        UIPause.SetActive(false);
         Debug.Log("Game Continues");
     }
 
