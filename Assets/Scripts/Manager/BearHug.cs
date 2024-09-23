@@ -7,7 +7,7 @@ public class BearHug : MonoBehaviour
     public static event Action UnHug;
 
     public GameObject Right, Left, Visor;
-    public bool Hands, Head;
+    public bool Hands, Head, prueba;
 
     public float HandsX, VisorY, VisorZ, rightHandY, rightHandZ, leftHandY, leftHandZ;
 
@@ -40,6 +40,10 @@ public class BearHug : MonoBehaviour
         else
         {
             UnHug?.Invoke();
+        }
+        if(prueba == true)
+        {
+            Hug?.Invoke();
         }
     }
 }

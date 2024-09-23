@@ -11,6 +11,11 @@ public class RaycastMedidor : MonoBehaviour
 
     public Camera cam; // Asigna tu cámara en el inspector
 
+    private void Start()
+    {
+        BearHug.Hug += HuggingBear;
+    }
+
     void Update()
     {
         Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
@@ -48,5 +53,13 @@ public class RaycastMedidor : MonoBehaviour
     void UpdateMeterUI()
     {
         meterImage.fillAmount = meterValue / 100f;
+    }
+
+    void HuggingBear()
+    {
+        if(meterValue >= 0)
+        {
+            meterValue -= Time.deltaTime * 10;
+        }
     }
 }
