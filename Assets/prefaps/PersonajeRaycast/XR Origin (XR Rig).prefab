@@ -1032,6 +1032,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayDistance: 10
   cam: {fileID: 4775457834128547557}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &7132162983300912084
 MonoBehaviour:
   m_ObjectHideFlags: 0

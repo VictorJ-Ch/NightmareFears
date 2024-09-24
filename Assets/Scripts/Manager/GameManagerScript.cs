@@ -10,6 +10,8 @@ public class GameManagerScript : MonoBehaviour
 
     public Light BearLight;
     public GameObject UIPause;
+    
+    bool wasPressed = false; 
     public static GameManagerScript Instance
     {
         get
@@ -43,14 +45,19 @@ public class GameManagerScript : MonoBehaviour
             // Se cambia el valor de triggerButton por el que se desea
             if(device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.menuButton, out triggerValue) && triggerValue)
             {
-                if (gameState == State.Pause)
+                
+            }
+
+            if(!triggerValue)
+            {
+                if(wasPressed)
                 {
-                    Play();
+                    wasPressed = false;
+                    //hacer algo
                 }
-                else
-                {
-                    Pause();
-                }
+            }else if(triggerValue)
+            {
+                wasPressed = true;
             }
         }
     }
