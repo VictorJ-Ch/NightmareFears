@@ -9,7 +9,7 @@ public class RaycastMedidor : MonoBehaviour
     private float meterValue = 0f;
     private bool isTouchingEnemy = false;
 
-    public Camera cam; // Asigna tu cámara en el inspector
+    public Camera cam; // Asigna tu cï¿½mara en el inspector
 
     private void Start()
     {
