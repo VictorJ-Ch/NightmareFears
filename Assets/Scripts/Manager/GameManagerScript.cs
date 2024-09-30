@@ -53,11 +53,12 @@ public class GameManagerScript : MonoBehaviour
                 if(wasPressed)
                 {
                     wasPressed = false;
-                    //hacer algo
+                    Pause();
                 }
             }else if(triggerValue)
             {
                 wasPressed = true;
+                Play();
             }
         }
     }
