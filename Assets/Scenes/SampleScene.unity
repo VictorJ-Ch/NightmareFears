@@ -3551,6 +3551,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 445915224}
   m_CullTransparentMesh: 1
+--- !u!1 &452002100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2247222520671333406, guid: fdfa574b2a0735d48bffb3caffb140fe, type: 3}
+  m_PrefabInstance: {fileID: 1659875170}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &452002105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452002100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3048a25547a8745b778a70c9657673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  Enemy: {fileID: 0}
+  Player: {fileID: 0}
+  followPlayer: 0
+  PL: {fileID: 0}
 --- !u!1 &457883420
 GameObject:
   m_ObjectHideFlags: 0
@@ -12284,6 +12306,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1743036733248416685, guid: fdfa574b2a0735d48bffb3caffb140fe, type: 3}
+      propertyPath: m_Size.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743036733248416685, guid: fdfa574b2a0735d48bffb3caffb140fe, type: 3}
+      propertyPath: m_Size.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743036733248416685, guid: fdfa574b2a0735d48bffb3caffb140fe, type: 3}
+      propertyPath: m_Size.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743036733248416685, guid: fdfa574b2a0735d48bffb3caffb140fe, type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1743036733248416685, guid: fdfa574b2a0735d48bffb3caffb140fe, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2247222520671333406, guid: fdfa574b2a0735d48bffb3caffb140fe, type: 3}
       propertyPath: m_Name
       value: CubeEnemy
@@ -12294,7 +12336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3848596995758180454, guid: fdfa574b2a0735d48bffb3caffb140fe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.27
+      value: 24.95
       objectReference: {fileID: 0}
     - target: {fileID: 3848596995758180454, guid: fdfa574b2a0735d48bffb3caffb140fe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12335,7 +12377,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2247222520671333406, guid: fdfa574b2a0735d48bffb3caffb140fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 452002105}
   m_SourcePrefab: {fileID: 100100000, guid: fdfa574b2a0735d48bffb3caffb140fe, type: 3}
 --- !u!1 &1666143803
 GameObject:
