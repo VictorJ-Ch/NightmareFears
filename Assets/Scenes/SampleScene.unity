@@ -16140,6 +16140,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 117569490878213372, guid: ade372fd597e4e44594acc1192fe5ec1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 117569490878213372, guid: ade372fd597e4e44594acc1192fe5ec1, type: 3}
+      propertyPath: m_FarAttachMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117569490878213372, guid: ade372fd597e4e44594acc1192fe5ec1, type: 3}
+      propertyPath: m_EnableFarCasting
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 309669486325999817, guid: ade372fd597e4e44594acc1192fe5ec1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -16276,6 +16288,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2749763037756479579, guid: ade372fd597e4e44594acc1192fe5ec1, type: 3}
+      propertyPath: m_RaycastMask.m_Bits
+      value: 33
+      objectReference: {fileID: 0}
     - target: {fileID: 2788840221720763431, guid: ade372fd597e4e44594acc1192fe5ec1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -16294,6 +16310,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2788840221720763431, guid: ade372fd597e4e44594acc1192fe5ec1, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819153884481277552, guid: ade372fd597e4e44594acc1192fe5ec1, type: 3}
+      propertyPath: m_EnableFarCasting
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3584422584055465063, guid: ade372fd597e4e44594acc1192fe5ec1, type: 3}
@@ -16340,6 +16360,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4452738638624305744, guid: ade372fd597e4e44594acc1192fe5ec1, type: 3}
+      propertyPath: m_RaycastMask.m_Bits
+      value: 33
+      objectReference: {fileID: 0}
     - target: {fileID: 5325187550399874808, guid: ade372fd597e4e44594acc1192fe5ec1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -16359,6 +16383,10 @@ PrefabInstance:
     - target: {fileID: 5325187550399874808, guid: ade372fd597e4e44594acc1192fe5ec1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677000398081165492, guid: ade372fd597e4e44594acc1192fe5ec1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6432237084881631259, guid: ade372fd597e4e44594acc1192fe5ec1, type: 3}
       propertyPath: m_AnchoredPosition.y
