@@ -1,34 +1,31 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; // Necesario para cargar escenas
 
 public class RaycastFromCamera : MonoBehaviour
 {
-    //Barra de ansiedad
-   // public Image medidorAnsiedad;
-    //public float ansiedadActual;
-    //public float ansiedadMaxima;
-
-    //private int meterValue = 0; // Valor del medidor
+    // Barra de ansiedad
+    public Image medidorAnsiedad;
+    public float ansiedadActual = 0;
+    public float ansiedadMaxima = 100f;
 
     //Raycast enemy
     public float rayDistance = 10f; // Distancia del raycast
-    public Camera cam; // Asigna tu cámara en el inspector
+    public Camera cam; // Asigna tu cÃ¡mara en el inspector
 
-    private GameObject lastHitObject = null; // Último objeto golpeado por el raycast
+    private GameObject lastHitObject = null; // Ãšltimo objeto golpeado por el raycast
     private Color originalColor; // Color original del objeto
 
     public LayerMask enemyLayer;
 
-
     void Update()
     {
         RaycastEnemy();
-        //MedidorAnsiedad();
     }
 
     private void RaycastEnemy()
     {
-        // Lanza el raycast desde el centro de la cámara
+        // Lanza el raycast desde el centro de la cÃ¡mara
         Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
 
@@ -43,7 +40,7 @@ public class RaycastFromCamera : MonoBehaviour
                 {
                     if (lastHitObject != null)
                     {
-                        // Restaurar el color original del último objeto golpeado
+                        // Restaurar el color original del Ãºltimo objeto golpeado
                         lastHitObject.GetComponent<Renderer>().material.color = originalColor;
                     }
 
@@ -57,7 +54,7 @@ public class RaycastFromCamera : MonoBehaviour
         }
         else
         {
-            // Si el raycast no golpea nada, restaurar el color del último objeto golpeado
+            // Si el raycast no golpea nada, restaurar el color del Ãºltimo objeto golpeado
             if (lastHitObject != null)
             {
                 lastHitObject.GetComponent<Renderer>().material.color = originalColor;
@@ -65,45 +62,4 @@ public class RaycastFromCamera : MonoBehaviour
             }
         }
     }
-    /*
-    private void MedidorAnsiedad()
-    {
-        // Obtener la posición y dirección de la cámara principal
-        Camera mainCamera = Camera.main;
-        Ray ray = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
-        RaycastHit hit;
-
-        // Dibujar el raycast en la escena (solo para depuración)
-        Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.green);
-
-        // Verificar si el raycast golpea un objeto
-        if (Physics.Raycast(ray, out hit, rayDistance))
-        {
-            // Verificar si el objeto tiene el tag "Enemy"
-            if (hit.collider.CompareTag("Enemy"))
-            {
-                // Si es un nuevo objeto, incrementar el medidor
-                if (lastHitObject != hit.collider.gameObject)
-                {
-                    lastHitObject = hit.collider.gameObject;
-                    IncrementMeter();
-                }
-            }
-        }
-        else
-        {
-            // Si el raycast no golpea nada, reiniciar el último objeto golpeado
-            lastHitObject = null;
-        }
-    }
-
-    void IncrementMeter()
-    {
-        if (meterValue < 100)
-        {
-            meterValue++;
-            medidorAnsiedad.fillAmount = meterValue / 100f; // Actualizar la imagen del medidor
-        }
-    }*/
-
 }
