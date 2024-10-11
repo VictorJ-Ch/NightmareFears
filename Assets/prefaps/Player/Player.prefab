@@ -12240,6 +12240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faec54ac378b02647b296882779aad9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  medidorAnsiedad: {fileID: 0}
+  ansiedadActual: 0
+  ansiedadMaxima: 100
   rayDistance: 10
   cam: {fileID: 1091488947717022459}
   enemyLayer:
@@ -12262,6 +12265,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   meterImage: {fileID: 0}
+  BadEnding: 
   cam: {fileID: 1091488947717022459}
 --- !u!1 &6759651404926747740
 GameObject:
