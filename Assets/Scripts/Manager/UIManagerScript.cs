@@ -11,9 +11,14 @@ public class UIManagerScript : MonoBehaviour
     {
         
     }
+
+    public void LoadLevel()
+    {
+          SceneManager.LoadScene(SceneName);
+    }
     void Update()
     {
-        var inputDevices = new List<UnityEngine.XR.InputDevice>();
+        /*var inputDevices = new List<UnityEngine.XR.InputDevice>();
         UnityEngine.XR.InputDevices.GetDevices(inputDevices);
         foreach (var device in inputDevices)
         {
@@ -22,6 +27,6 @@ public class UIManagerScript : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneName);
             }
-        }
+        }*/
     }
 }
