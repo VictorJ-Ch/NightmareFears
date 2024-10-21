@@ -9,7 +9,7 @@ public class EnemyBehavior : MonoBehaviour
     //patrol
     public Transform[] Points;
     public int current;
-    public float speed, rotSpeed, _distance;
+    public float _distance;
 
     //follow
     NavMeshAgent navMeshAgent;
@@ -39,7 +39,8 @@ public class EnemyBehavior : MonoBehaviour
 
         if (EnemyState == State.Patrol)
         {
-            if (Vector3.Distance(this.transform.position, Points[current].transform.position) < _distance)
+            //Normal Patrol
+            /*if (Vector3.Distance(this.transform.position, Points[current].transform.position) < _distance)
             {
                 current++;
             }
@@ -51,7 +52,20 @@ public class EnemyBehavior : MonoBehaviour
 
             Quaternion lookAtWP = Quaternion.LookRotation(Points[current].transform.position - this.transform.position);
             this.transform.rotation = Quaternion.Slerp(transform.rotation, lookAtWP, Time.deltaTime * rotSpeed);
-            this.transform.Translate(0.0f, 0.0f, speed * Time.deltaTime);
+            this.transform.Translate(0.0f, 0.0f, speed * Time.deltaTime);*/
+
+            //Patrol NavMesh    
+            navMeshAgent.SetDestination(Points[current].transform.position);
+
+            if(Vector3.Distance(this.transform.position, Points[current].transform.position) < _distance)
+            {
+                current++;
+            }
+
+            if(current >= Points.Length)
+            {
+                current = 0;
+            }
         }
     }
 
