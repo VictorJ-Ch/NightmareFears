@@ -48,7 +48,11 @@ public class RaycastMedidor : MonoBehaviour
     {
         if (meterValue < 100f)
         {
-            meterValue += Time.deltaTime * 10; // Incrementa el medidor a una velocidad de 10 unidades por segundo
+            meterValue += Time.deltaTime * 4; // Incrementa el medidor a una velocidad de 10 unidades por segundo
+        }
+        
+        if{(rayDistance < 4f && meterValue < 100f)
+            meterValue += Time.deltaTime * 8;
         }
     }
 
