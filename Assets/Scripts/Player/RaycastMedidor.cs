@@ -1,9 +1,12 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement; // Necesario para cambiar escenas
+using UnityEngine.UI;
 
 public class RaycastMedidor : MonoBehaviour
 {
+    public GameObject enemy;
+    public Vector3 newEnemyPosition;
+
     public float rayDistance = 10f;
     public LayerMask enemyLayer;
     public Image meterImage;
@@ -48,9 +51,29 @@ public class RaycastMedidor : MonoBehaviour
     {
         if (meterValue < 100f)
         {
-            meterValue += Time.deltaTime * 10; // Incrementa el medidor a una velocidad de 10 unidades por segundo
+            meterValue += Time.deltaTime * 4; // Incrementa el medidor a una velocidad de 10 unidades por segundo
+        }
+
+        if (rayDistance < 4f && meterValue < 100f)
+        {
+            meterValue += Time.deltaTime * 8;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            meterValue += 15f;
+
+            other.transform.position = newEnemyPosition;
+            //enemy.tr = new Vector3(21.79f, -6f, -13.89f);
+
+        }
+    }
+
+
+
 
     void UpdateMeterUI()
     {
