@@ -1,15 +1,21 @@
 using System.Collections.Generic;
 using System.Diagnostics;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
+    
+    int nightLights = 2;
+    int lightsLit = 0;
     private static GameManagerScript instance;
     public enum State{Pause, Play, Normal, Hugging} 
     public static State gameState, PlayerState;
 
     public Light BearLight;
     public GameObject UIPause;
+    public TextMeshProUGUI instructionsTMP;
     
     bool wasPressed = false; 
     public static GameManagerScript Instance
@@ -30,6 +36,7 @@ public class GameManagerScript : MonoBehaviour
         gameState = State.Play;
         BearHug.Hug += HuggingBear;
         BearHug.UnHug += UnHug;
+        SpawnLights.onLit+=nightLightLit;
     }
     void Update()
     {
@@ -92,6 +99,17 @@ public class GameManagerScript : MonoBehaviour
         if (BearLight.intensity >= 0)
         {
             BearLight.intensity--;
+        }
+    }
+
+    void nightLightLit()
+    {
+        lightsLit++;
+        instructionsTMP.text = "Luces colocadas(" + lightsLit + "/ " + nightLights + ")";
+        print("luces colocadas(" +lightsLit + "/" + nightLights + ")");
+        if(nightLights<=lightsLit)
+        {
+            SceneManager.LoadScene("GoodFinalScene");
         }
     }
 }

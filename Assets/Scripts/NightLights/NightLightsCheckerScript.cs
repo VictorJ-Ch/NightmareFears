@@ -8,18 +8,24 @@ using UnityEngine.UI;
 public class NightLightsCheckerScript : MonoBehaviour
 {
     public int contador;
+    public int nightLights;
     public string sceneName;
     public TextMeshProUGUI contadorTxt;
 
     void OnTriggerEnter(Collider other)
     {
+        print("Outside Tag NightLight");
         if(other.CompareTag("NightLight"))
         {
+            print("Inside Tag NIghtLight");
             contador ++;
-            contadorTxt.text = "Luces colocadas ({contador}/1)";
-            SceneManager.LoadScene(sceneName);
+            contadorTxt.text = "Luces colocadas8nuhnuhn" + contador.ToString() +"/"+ nightLights.ToString();
             print("Luces puestas: " + contador);
-            print("Cambiando a: " + sceneName);
+            if(contador >= nightLights)
+            {
+                SceneManager.LoadScene(sceneName);
+                print("Cambiando a: " + sceneName);
+            }
         }
     }
 }
