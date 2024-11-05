@@ -7,7 +7,7 @@ public class RaycastMedidor : MonoBehaviour
     public GameObject enemy;
     public Vector3 newEnemyPosition;
 
-    public float rayDistance = 10f;
+    private float rayDistance = 10f;
     public LayerMask enemyLayer;
     public Image meterImage;
     private float meterValue = 0f;
@@ -49,15 +49,18 @@ public class RaycastMedidor : MonoBehaviour
 
     void IncreaseMeter()
     {
+
+        if (rayDistance < 5f && meterValue < 100f)
+        {
+            meterValue += Time.deltaTime * 8;
+        }
+
         if (meterValue < 100f)
         {
             meterValue += Time.deltaTime * 4; // Incrementa el medidor a una velocidad de 10 unidades por segundo
         }
 
-        if (rayDistance < 4f && meterValue < 100f)
-        {
-            meterValue += Time.deltaTime * 8;
-        }
+        
     }
 
     private void OnTriggerEnter(Collider other)

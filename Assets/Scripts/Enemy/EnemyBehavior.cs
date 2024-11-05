@@ -15,6 +15,8 @@ public class EnemyBehavior : MonoBehaviour
     NavMeshAgent navMeshAgent;
     GameObject Player;
 
+    //Vector3[] puntos = new Vector3[4];
+
     void Awake()
     {
         EnemyManager.Follow += follow;
@@ -27,6 +29,8 @@ public class EnemyBehavior : MonoBehaviour
 
         navMeshAgent = GetComponent<NavMeshAgent>();
         Player = GameObject.FindGameObjectWithTag("Player");
+
+        //ObtenerPuntos();
     }
 
     // Update is called once per frame
@@ -78,4 +82,13 @@ public class EnemyBehavior : MonoBehaviour
     {
         EnemyState = State.Patrol;
     }
+
+    /*public void ObtenerPuntos()
+    {
+        puntos[0] = new Vector3(21.79f, -6f, -13.89f);
+        puntos[1] = new Vector3(18f, -6f, -10f);
+        puntos[2] = new Vector3(0, -6f, -10f);
+        puntos[3] = new Vector3(21f, -6f, -7.5f);
+
+    }*/
 }

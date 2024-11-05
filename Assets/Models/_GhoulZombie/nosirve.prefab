@@ -910,7 +910,7 @@ GameObject:
   - component: {fileID: 4467757482891228}
   - component: {fileID: 111670102475343736}
   m_Layer: 0
-  m_Name: Ghoul
+  m_Name: nosirve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
