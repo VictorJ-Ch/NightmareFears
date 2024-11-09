@@ -65778,7 +65778,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 184205081987589562, guid: ade372fd597e4e44594acc1192fe5ec1, type: 3}
       propertyPath: m_text
-      value: Amsiedad
+      value: Ansiedad
       objectReference: {fileID: 0}
     - target: {fileID: 1209867805193422611, guid: ade372fd597e4e44594acc1192fe5ec1, type: 3}
       propertyPath: m_Enabled
