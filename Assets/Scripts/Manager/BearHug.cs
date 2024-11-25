@@ -7,13 +7,17 @@ public class BearHug : MonoBehaviour
     public static event Action UnHug;
 
     public GameObject Right, Left, Visor;
-    public bool Hands, Head, prueba;
+    public bool Hands, Head, hug/*, prueba*/;
 
     public float HandsX, VisorY, VisorZ, rightHandY, rightHandZ, leftHandY, leftHandZ;
 
+    private void Awake()
+    {
+        bear.onGrab += grab;
+        bear.onRelease += release;
+    }
     void Update()
     {
-
         canHug();
     }
 
@@ -33,7 +37,7 @@ public class BearHug : MonoBehaviour
         float handsX = (RightHand.x - LeftHand.x);
         //Calculo abrazo end
 
-        if (rightHandY <= VisorY && leftHandY <= VisorY && rightHandZ <= VisorZ && leftHandZ <= VisorZ && handsX <= HandsX)
+        if (rightHandY <= VisorY && leftHandY <= VisorY && rightHandZ <= VisorZ && leftHandZ <= VisorZ && handsX <= HandsX && hug == true)
         {
             Hug?.Invoke();
         }
@@ -41,9 +45,19 @@ public class BearHug : MonoBehaviour
         {
             UnHug?.Invoke();
         }
-        if(prueba == true)
-        {
-            Hug?.Invoke();
-        }
+        //if(prueba == true)
+        //{
+        //    Hug?.Invoke();
+        //}
+    }
+
+    void grab()
+    {
+        hug = true;
+    }
+
+    void release()
+    {   
+        hug = false;
     }
 }
