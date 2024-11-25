@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - PositionItem
   - NightLight
+  - Bear
   layers:
   - Default
   - TransparentFX

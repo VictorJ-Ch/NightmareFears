@@ -6,19 +6,17 @@ public class bear : MonoBehaviour
     public static event Action onGrab;
     public static event Action onRelease;
 
-    public string tag;
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(tag))
+        if (other.CompareTag("Bear"))
         {
             onGrab?.Invoke();
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag(tag))
+        if (other.CompareTag("Bear"))
         {
             onRelease?.Invoke();
         }
