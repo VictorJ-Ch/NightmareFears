@@ -30,6 +30,8 @@ public class EnemyBehavior : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         Player = GameObject.FindGameObjectWithTag("Player");
 
+        current = Random.Range(0, Points.Length);
+
         //ObtenerPuntos();
     }
 
@@ -63,12 +65,7 @@ public class EnemyBehavior : MonoBehaviour
 
             if(Vector3.Distance(this.transform.position, Points[current].transform.position) < _distance)
             {
-                current++;
-            }
-
-            if(current >= Points.Length)
-            {
-                current = 0;
+                current = Random.Range(0, Points.Length);
             }
         }
     }
