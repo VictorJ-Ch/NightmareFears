@@ -67,7 +67,7 @@ public class RaycastMedidor : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            meterValue += 15f;
+            meterValue += 100f;
 
             other.transform.position = newEnemyPosition;
             //enemy.tr = new Vector3(21.79f, -6f, -13.89f);
