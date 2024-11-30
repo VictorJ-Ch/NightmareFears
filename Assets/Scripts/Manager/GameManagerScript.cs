@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManagerScript : MonoBehaviour
 {
     
-    int nightLights = 2;
+    public int nightLights = 3;
     int lightsLit = 0;
     private static GameManagerScript instance;
     public enum State{Pause, Play, Normal, Hugging} 
@@ -105,7 +105,7 @@ public class GameManagerScript : MonoBehaviour
     void nightLightLit()
     {
         lightsLit++;
-        instructionsTMP.text = "Luces colocadas(" + lightsLit + "/ " + nightLights + ")";
+        instructionsTMP.text = "Night Lights (" + lightsLit + "/ " + nightLights + ")";
         print("luces colocadas(" +lightsLit + "/" + nightLights + ")");
         if(nightLights<=lightsLit)
         {

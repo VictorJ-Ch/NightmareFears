@@ -1,20 +1,23 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // Necesario para cambiar escenas
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class RaycastMedidor : MonoBehaviour
 {
+    public GameObject doorTuto;
+    private bool doorTutoDisabled = false;
+
     public GameObject enemy;
     public Vector3 newEnemyPosition;
 
     private float rayDistance = 10f;
     public LayerMask enemyLayer;
     public Image meterImage;
-    private float meterValue = 0f;
+    private float meterValue = 30f;
     private bool isTouchingEnemy = false;
-    public string BadEnding; // Escena del final malo
+    public string BadEnding;
 
-    public Camera cam; // Asigna tu cámara en el inspector
+    public Camera cam;
 
     private void Start()
     {
@@ -44,7 +47,7 @@ public class RaycastMedidor : MonoBehaviour
         }
 
         UpdateMeterUI();
-        CheckMeterValue(); // Llamamos al método para verificar si se debe cambiar de escena
+        CheckMeterValue();
     }
 
     void IncreaseMeter()
@@ -57,7 +60,7 @@ public class RaycastMedidor : MonoBehaviour
 
         if (meterValue < 100f)
         {
-            meterValue += Time.deltaTime * 4; // Incrementa el medidor a una velocidad de 10 unidades por segundo
+            meterValue += Time.deltaTime * 4;
         }
 
         
@@ -88,16 +91,19 @@ public class RaycastMedidor : MonoBehaviour
         if (meterValue >= 0)
         {
             meterValue -= Time.deltaTime * 10;
+            if (meterValue <= 0 && !doorTutoDisabled) { 
+                doorTuto.SetActive(false); 
+                doorTutoDisabled = true; 
+                }
         }
     }
 
-    // Nueva función para verificar el valor del medidor y cambiar de escena
     void CheckMeterValue()
     {
         if (meterValue >= 100f)
         {
             print("Medidor al máximo, cambiando de escena...");
-            SceneManager.LoadScene(BadEnding); // Cambiar a la escena de "Bad Ending"
+            SceneManager.LoadScene(BadEnding); 
         }
     }
 }
