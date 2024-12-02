@@ -6,7 +6,7 @@ public class grito : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player")) // Asegúrate de que tu jugador tenga el tag "Player"
+        if (other.CompareTag("Nightlight")) // Asegúrate de que tu jugador tenga el tag "Player"
         {
             if (!triggerSound.isPlaying)
             {
