@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using System;
 using UnityEngine;
 
 public class SpawnLights : MonoBehaviour
 {
     public static event Action onLit;
+    public static event Action isTutorial;
+
     public string NightLightTag;
+
+    public bool Tuttorial;
 
     public Vector3 Spawn;
     public Quaternion Rot;
@@ -22,6 +23,11 @@ public class SpawnLights : MonoBehaviour
             Instantiate(Prefab, SpawnPoint, Rot);
             onLit?.Invoke();
             Destroy(this.gameObject);
+        }
+
+        if (Tuttorial)
+        {
+            isTutorial?.Invoke();
         }
     }
 }
