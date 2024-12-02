@@ -9,6 +9,8 @@ TagManager:
   - PositionItem
   - NightLight
   - Bear
+  - NightLightAzul
+  - NightLightNaranja
   layers:
   - Default
   - TransparentFX
