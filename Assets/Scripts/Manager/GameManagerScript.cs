@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameManagerScript : MonoBehaviour
 {
     
-    public int nightLights = 3;
-    int lightsLit = 0;
+    public int nightLights;
+    public int lightsLit;
     private static GameManagerScript instance;
     public enum State{Pause, Play, Normal, Hugging} 
     public static State gameState, PlayerState;
@@ -41,6 +41,10 @@ public class GameManagerScript : MonoBehaviour
     void Update()
     {
         ChangeState();
+        if (lightsLit == nightLights)
+        {
+            SceneManager.LoadScene("GoodFinalScene");
+        }
     }
     void ChangeState()
     {
@@ -107,9 +111,5 @@ public class GameManagerScript : MonoBehaviour
         lightsLit++;
         instructionsTMP.text = "Night Lights (" + lightsLit + "/ " + nightLights + ")";
         print("luces colocadas(" +lightsLit + "/" + nightLights + ")");
-        if(nightLights<=lightsLit)
-        {
-            SceneManager.LoadScene("GoodFinalScene");
-        }
     }
 }
