@@ -55,13 +55,10 @@ public class RaycastMedidor : MonoBehaviour
 
         if (rayDistance < 5f && meterValue < 100f)
         {
-            meterValue += Time.deltaTime * 8;
+            meterValue += Time.deltaTime * 13;
         }
 
-        if (meterValue < 100f)
-        {
-            meterValue += Time.deltaTime * 4;
-        }
+        
 
         
     }
